@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import Decrementor from './Decrementor';
-import CounterDisplay from './CounterDisplay';
-import Incrementor from './Incrementor';
+import CounterChild from './CounterChild';
 
 class Counter extends Component {
     constructor() {
@@ -18,11 +16,11 @@ class Counter extends Component {
 
     render() {
         return (
-            <div>
-                <Decrementor decrease={this.decrement}/>
-                <CounterDisplay current={this.state.current} />
-                <Incrementor increase={this.increment} />
-            </div>
+           <CounterChild
+           decrement={this.decrement}
+           current={this.state.current}
+           increment={this.increment}
+           />
         );
     }
 }
