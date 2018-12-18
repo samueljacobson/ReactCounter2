@@ -1,26 +1,17 @@
 import React, {Component} from 'react';
-import CounterChild from './CounterChild';
+import Decrementor from './Decrementor';
+import CounterDisplay from './CounterDisplay';
+import Incrementor from './Incrementor';
 
 class Counter extends Component {
-    constructor() {
-        super();
-        this.state = { current: 0 };
-    }
-    increment = () => {
-        //this.state.current = this.state.current + 1; - can't directly change state
-        this.setState({ current: this.state.current + 1 });
-    }
-    decrement = () => {
-        this.setState({ current: this.state.current - 1} );
-    }
-
     render() {
+        const {decrement, current, increment} = this.props;
         return (
-           <CounterChild
-           decrement={this.decrement}
-           current={this.state.current}
-           increment={this.increment}
-           />
+            <div>
+                <Decrementor decrease={decrement}/>
+                <CounterDisplay current={current} />
+                <Incrementor increase={increment} />
+            </div>
         );
     }
 }
